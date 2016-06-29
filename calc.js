@@ -9,17 +9,15 @@ var operator = '+';
 
 // TODO: DEFINE YOUR FUNCTIONS HERE
 
-function concat(buttonValue) {
-    currentNum = currentNum + buttonValue;
-    console.log(currentNum);
-    updateDisplay(currentNum);
-}
 
 
-function add(buttonValue) {
-    newValue = buttonValue + buttonValue;
-    return newValue;
+function add(x, y) {
+    var total = Number(x) + Number(y);
+    console.log(total);
+    return total;
 }
+
+// add(3,7); // 10
 
 
 /**
@@ -40,7 +38,12 @@ function handleButtonClick(buttonValue) {
         currentNum = currentNum + buttonValue;
         console.log(currentNum, buttonValue);
         updateDisplay(currentNum);
-
+    } else if (buttonValue === '+'){
+//      |          13         |
+        total = add(currentNum, total);
+        updateDisplay(total);
+        currentNum = '';
+        operator = '+';
     }
 
     // If number is a number concat with
