@@ -3,7 +3,7 @@
 
 var displayValue = '';
 var currentNum = '';
-var total = 0;
+var total = null;
 var operator = '+';
 
 
@@ -19,6 +19,11 @@ function add(x, y) {
 
 function subtract(x, y) {
     var total = Number(y) - Number(x);
+    console.log(total);
+    return total;
+}
+function multiply(x, y) {
+    var total = Number(x) * Number(y);
     console.log(total);
     return total;
 }
@@ -45,16 +50,31 @@ function handleButtonClick(buttonValue) {
         console.log(currentNum, buttonValue);
         updateDisplay(currentNum);
     } else if (buttonValue === '+'){
+        if (total === null) {
+            total = 0;
+        }
 //      |          13         |
         total = add(currentNum, total);
         updateDisplay(total);
         currentNum = '';
         operator = '+';
     } else if (buttonValue === '-'){
-        total = subtract(currentNum, total);
+        if (total === null) {
+            total = Number(currentNum);
+        } else {
+            total = subtract(currentNum, total);
+        }
         updateDisplay(total);
         currentNum = '';
         operator = '-';
+    } else if (buttonValue === 'x') {
+        if (total === null) {
+            total = 1;
+        }
+        total = multiply(currentNum, total);
+        updateDisplay(total);
+        currentNum = '';
+        operator = '*';
     }
 
     // If number is a number concat with
