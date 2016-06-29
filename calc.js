@@ -15,7 +15,7 @@
  */
 function handleButtonClick(buttonValue) {
 
-    // TODO: WRITE SOME OF YOUR CODE HERE
+    updateDisplay(buttonValue);
 
 }
 
