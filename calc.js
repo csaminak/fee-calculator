@@ -17,6 +17,12 @@ function add(x, y) {
     return total;
 }
 
+function subtract(x, y) {
+    var total = Number(y) - Number(x);
+    console.log(total);
+    return total;
+}
+
 // add(3,7); // 10
 
 
@@ -44,10 +50,14 @@ function handleButtonClick(buttonValue) {
         updateDisplay(total);
         currentNum = '';
         operator = '+';
+    } else if (buttonValue === '-'){
+        total = subtract(currentNum, total);
+        updateDisplay(total);
+        currentNum = '';
+        operator = '-';
     }
 
     // If number is a number concat with
-
 
 }
 
