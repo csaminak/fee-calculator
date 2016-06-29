@@ -28,6 +28,11 @@ function multiply(x, y) {
     return total;
 }
 
+function divide(x, y) {
+    var total = Number(x) / Number(y);
+    console.log(total);
+    return total;
+}
 // add(3,7); // 10
 
 
@@ -75,9 +80,16 @@ function handleButtonClick(buttonValue) {
         updateDisplay(total);
         currentNum = '';
         operator = '*';
+    } else if (buttonValue === '/') {
+        if (total === null) {
+            total = Number(currentNum);
+        } else {
+            total = divide(total, currentNum);
+        }
+        updateDisplay(total);
+        currentNum = '';
+        operator = '/';
     }
-
-    // If number is a number concat with
 
 }
 
