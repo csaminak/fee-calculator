@@ -1,10 +1,25 @@
 
 // TODO: DEFINE ANY VARIABLES HERE
-var convertedNumber = Number(handleButtonClick());
 
-//var convertToNumber = Number(handleButtonClick());
+var displayValue = '';
+var currentNum = '';
+var total = 0;
+var operator = '+';
+
 
 // TODO: DEFINE YOUR FUNCTIONS HERE
+
+function concat(buttonValue) {
+    currentNum = currentNum + buttonValue;
+    console.log(currentNum);
+    updateDisplay(currentNum);
+}
+
+
+function add(buttonValue) {
+    newValue = buttonValue + buttonValue;
+    return newValue;
+}
 
 
 /**
@@ -15,27 +30,25 @@ var convertedNumber = Number(handleButtonClick());
  *
  * @param  {String} buttonValue   The value of the button that was clicked on, for example "6" or "+"
  */
+
 function handleButtonClick(buttonValue) {
+    // updateDisplay(buttonValue);
+    console.log(buttonValue);
 
-    updateDisplay(buttonValue);
+    // Determine typeOf buttonValue is a number
+    if (Number(buttonValue) || buttonValue === '0' || buttonValue === '.') {
+        currentNum = currentNum + buttonValue;
+        console.log(currentNum, buttonValue);
+        updateDisplay(currentNum);
 
-    if (buttonValue === '+') {
-        function add();
     }
 
-    if (buttonValue === '-') {
-        function substract();
-    }
+    // If number is a number concat with
 
-    if (buttonValue === '/') {
-        function divide();
-    }
-
-    if (buttonValue === '*') {
-        function multiply();
-    }
 
 }
+
+
 
 
 
