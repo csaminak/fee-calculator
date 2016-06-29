@@ -6,7 +6,6 @@ var currentNum = '';
 var total = null;
 var operator = '+';
 
-
 // TODO: DEFINE YOUR FUNCTIONS HERE
 
 
@@ -16,7 +15,6 @@ function add(x, y) {
     console.log(total);
     return total;
 }
-
 function subtract(x, y) {
     var total = Number(y) - Number(x);
     console.log(total);
@@ -27,13 +25,26 @@ function multiply(x, y) {
     console.log(total);
     return total;
 }
-
 function divide(x, y) {
     var total = Number(x) / Number(y);
     console.log(total);
     return total;
 }
-// add(3,7); // 10
+function equal(x, y) {
+    if (operator === '+') {
+        add(x, y);
+    } else if (operator === '-') {
+        subtract(x, y);
+    } else if (operator === 'x') {
+        multiply(x, y);
+    } else if (operator === '/') {
+        divide(x, y);
+    }
+}
+    // var total = Number(x) +  Number(y);
+    // console.log(total);
+    // return total;
+
 
 
 /**
@@ -63,7 +74,7 @@ function handleButtonClick(buttonValue) {
         updateDisplay(total);
         currentNum = '';
         operator = '+';
-    } else if (buttonValue === '-'){
+    } else if (buttonValue === '-') {
         if (total === null) {
             total = Number(currentNum);
         } else {
@@ -89,8 +100,17 @@ function handleButtonClick(buttonValue) {
         updateDisplay(total);
         currentNum = '';
         operator = '/';
+    } else if (buttonValue === '=') {
+        if (total === null) {
+            total = Number(currentNum);
+        } else {
+            total = equal(currentNum, total);
+        }
+        console.log(total);
+        updateDisplay(total);
+        currentNum = '';
+        operator = '+';
     }
-
 }
 
 
