@@ -41,9 +41,6 @@ function equal(x, y) {
         divide(x, y);
     }
 }
-    // var total = Number(x) +  Number(y);
-    // console.log(total);
-    // return total;
 
 
 
