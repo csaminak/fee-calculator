@@ -1,10 +1,9 @@
 
 // TODO: DEFINE ANY VARIABLES HERE
 
-var displayValue = '';
 var currentNum = '';
 var total = null;
-var operator = '+';
+var operator = '';
 
 // TODO: DEFINE YOUR FUNCTIONS HERE
 
@@ -30,15 +29,17 @@ function divide(x, y) {
     return total;
 }
 function equal(x, y) {
+    var total;
     if (operator === '+') {
-        add(x, y);
+        total = add(x, y);
     } else if (operator === '-') {
-        subtract(x, y);
+        total = subtract(x, y);
     } else if (operator === 'x') {
-        multiply(x, y);
+        total = multiply(x, y);
     } else if (operator === '/') {
-        divide(x, y);
+        total = divide(x, y);
     }
+    return total;
 }
 
 
