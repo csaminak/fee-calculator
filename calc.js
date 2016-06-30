@@ -34,10 +34,10 @@ function equal(x, y) {
         total = add(x, y);
     } else if (operator === '-') {
         total = subtract(x, y);
-    } else if (operator === 'x') {
+    } else if (operator === '*') {
         total = multiply(x, y);
     } else if (operator === '/') {
-        total = divide(x, y);
+        total = divide(y, x);
     }
     return total;
 }
@@ -62,29 +62,33 @@ function handleButtonClick(buttonValue) {
         currentNum = currentNum + buttonValue;
         console.log(currentNum, buttonValue);
         updateDisplay(currentNum);
+
     } else if (buttonValue === '+'){
         if (total === null) {
-            total = 0;
+            total = Number(currentNum);
+        } else {
+//                  |          13         |
+            total = equal(currentNum, total);
         }
-//      |          13         |
-        total = add(currentNum, total);
         updateDisplay(total);
         currentNum = '';
         operator = '+';
+
     } else if (buttonValue === '-') {
         if (total === null) {
             total = Number(currentNum);
         } else {
-            total = subtract(currentNum, total);
+            total = equal(currentNum, total);
         }
         updateDisplay(total);
         currentNum = '';
         operator = '-';
     } else if (buttonValue === 'x') {
         if (total === null) {
-            total = 1;
+            total = Number(currentNum);
+        } else {
+            total = equal(currentNum, total);
         }
-        total = multiply(currentNum, total);
         updateDisplay(total);
         currentNum = '';
         operator = '*';
@@ -92,7 +96,7 @@ function handleButtonClick(buttonValue) {
         if (total === null) {
             total = Number(currentNum);
         } else {
-            total = divide(total, currentNum);
+            total = equal(total, currentNum);
         }
         updateDisplay(total);
         currentNum = '';
@@ -100,13 +104,18 @@ function handleButtonClick(buttonValue) {
     } else if (buttonValue === '=') {
         if (total === null) {
             total = Number(currentNum);
-        } else {
+        } else if (operator !== '') {
             total = equal(currentNum, total);
         }
         console.log(total);
         updateDisplay(total);
         currentNum = '';
-        operator = '+';
+        operator = '';
+    } else if (buttonValue === 'clear') {
+        total = null;
+        updateDisplay('');
+        currentNum = '';
+        operator = '';
     }
 }
 
