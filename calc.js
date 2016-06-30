@@ -9,7 +9,6 @@ var operator = '+';
 // TODO: DEFINE YOUR FUNCTIONS HERE
 
 
-
 function add(x, y) {
     var total = Number(x) + Number(y);
     console.log(total);
